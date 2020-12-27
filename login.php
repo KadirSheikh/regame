@@ -8,6 +8,7 @@
 
 </style>
 <body>
+
 <?php
 
    error_reporting(0);
@@ -32,8 +33,8 @@ if(isset($_POST['submit'])) {
   
 
   
-   $query = "SELECT * FROM `users_tbl` WHERE username = '{$_username}'";
-   $data = mysqli_query($conn , $query);
+    $query = "SELECT * FROM `users_tbl` WHERE username = '{$_username}'";
+    $data = mysqli_query($conn , $query);
    $num_rows = mysqli_num_rows($data);
    if ($num_rows == 1) {
      $_SESSION['loggedin'] = true;

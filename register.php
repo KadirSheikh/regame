@@ -35,7 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_name = test_input($_POST["user_name"]);
     if (preg_match('/^[a-z0-9]{6,10}$/', $user_name)) {
       $usernameErr = "Username must contain atleast one uppercase, one lowercase and a number!";
+      $query = "SELECT * FROM `users_tbl`";
+      $data = mysqli_query($conn , $query);
+      while($row = mysqli_fetch_assoc($data)){
+          
+        $db_username = $row['username'];
+        if($user_name ==  $db_username){
+          $usernameErr = "Username is already exists";
+        }
+
+      }
     }else{
+      
       $_username = $user_name;
       $_SESSION['username'] = $_username;
     }
