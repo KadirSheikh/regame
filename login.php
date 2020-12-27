@@ -1,7 +1,16 @@
 <?php include 'common/header.php'; ?>
 <?php include 'common/connect.php'; ?>
+<style>
+
+.error{
+  color:red;
+}
+
+</style>
 <body>
 <?php
+
+   error_reporting(0);
     session_start();
     $usernameErr = $passErr = "";
 
@@ -10,7 +19,7 @@ if(isset($_POST['submit'])) {
    if (empty($_POST["user_name"])) {
     $usernameErr = "*Username is required";
   } else {
-      $_username = $_POST["user_name"];
+      $_username = test_input($_POST["user_name"]);
       
     }
   
@@ -18,7 +27,7 @@ if(isset($_POST['submit'])) {
   if (empty($_POST["password"])) {
     $passErr = "*Password is required";
   } else {
-      $psw = $_POST["password"];
+      $psw = test_input($_POST["password"]);
     }
   
 
@@ -66,6 +75,14 @@ if($_username === $db_username){
 
 }
 
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
    ?>
   <div class="main">
   <?php include 'common/nav.php'; ?>
@@ -82,12 +99,14 @@ if($_username === $db_username){
             <form action="" method="post">
               <input type="hidden" name="_token" value="DDYkFFNN19cpMaMyCF3yHLNIzWqSgkOPc1BEfNlT">
               <div class="form-group">
-                <input type="text" name="mobile_no" class="form-control login-input " placeholder="Enter Username"
+                <input type="text" name="user_name" class="form-control login-input " placeholder="Enter Username"
                   value="" >
+                  <span class="error">  <?php echo $usernameErr;?></span>
               </div>
               <div class="form-group">
                 <input type="password" name="password" class="form-control login-input " placeholder="Enter Password"
                   >
+                  <span class="error">  <?php echo $passErr;?></span>
               </div>
               <div class="form-group">
                 <a href="forgot-password.php">Forgot Password</a>
