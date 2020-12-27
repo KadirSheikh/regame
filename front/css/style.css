@@ -1,0 +1,949 @@
+
+	  
+	 
+	 /* ************* 
+  TERMS & CONDTIONS page start css
+    ******************/
+      .terms-and-condtions {
+        margin-top: 135px;
+      }
+      .terms-and-condtions h1 {
+        font-family: "Spicy Rice", cursive;
+        text-align: center;
+        color: #db0f12;
+        font-size: 72px;
+      }
+      .terms-and-condtions p {
+        font-family: "Montserrat", sans-serif;
+        /* text-align: center; */
+        /* font-size: 20px; */
+      }
+      .terms-and-condtions h3 {
+        font-family: "Montserrat", sans-serif;
+        /* text-align: center; */
+        font-weight: 900;
+      }
+      .terms-and-condtions h4 {
+        font-family: "Montserrat", sans-serif;
+        line-height: 28px;
+      }
+      .terms-and-condtions-line {
+        border: 1px solid;
+        color: #64b161;
+        margin-top: 0px;
+      }
+
+      /* ************* 
+  TERMS & CONDTIONS page END css
+	******************/
+	
+	/* challenge css start */
+	#winnerForm,
+	#loserForm,
+	#cancelForm {
+	  background-color: #ebebeb;
+	  margin-top: 20px;
+	}
+  
+	.result-input-group {
+	  display: inline-block;
+	  margin-top: 20px;
+	}
+  
+	.cancel-textarea {
+	  display: inline-block;
+	  vertical-align: middle;
+	}
+/* challenge css end */
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	width: 100%;
+	min-height: 100%;
+}
+
+html
+{
+  overflow-x: hidden;
+}
+
+.navbar-default
+{
+	background-color: #337ab7;
+	border-radius: 0;
+	height: 70px;
+}
+
+.logo
+{
+	margin-top: -6px;
+	color: #fff;
+}
+
+.navbar-default .navbar-nav>.active>a
+{
+	background: none;
+	color: #fff;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+
+.navbar-default .navbar-nav>.active>a:hover
+{
+	background: none;
+	color: #aac8e2;
+}
+
+.navbar-nav>li>a
+{
+	line-height: 40px;
+}
+
+.whatsup-number
+{
+	margin-left: 10px;
+}
+
+.btn-login
+{
+	margin-top: 18px;
+	border: 0px;
+	background-color: #e0b106;
+	color: #333;
+}
+
+/* Home Content */
+.home-content
+{
+	margin-top: 100px;
+}
+
+.home-content h1
+{
+	font-size: 90px;
+	font-family: 'Spicy Rice', cursive;
+	color: #038cd0;
+	text-transform: uppercase;
+}
+
+.home-content h1 span
+{
+	color: red;
+}
+
+.home-content h3
+{
+	text-transform: uppercase;
+	font-weight: 700;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.login-btn, .signup-now
+{
+	margin-top: 40px;
+	background-color: #e0b106;
+	font-size: 20px;
+	width: 100px;
+	margin-bottom: 20px;
+	border-radius: 25px;
+	text-transform: uppercase;
+}
+
+.home-content p
+{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 26px;
+	font-weight: 200;
+}
+
+.youtube-iframe{
+    margin-top:210px;
+    width:100% !important;
+    height:360px;
+}
+
+.footer-block
+{
+	background-color: #337ab7;
+	position: absolute;
+    text-align: center;  
+    right: 0;
+    left: 0;
+}
+
+.footer-block h1
+{
+	text-align: left;
+	color: #fff;
+	font-size: 22px;
+	font-family: 'Spicy Rice', cursive;
+	letter-spacing: 1px;
+	margin-top: 15px;
+}
+
+.footer-block ul
+{
+	list-style: none;
+}
+
+.footer-block ul li
+{
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.footer-block ul li a
+{
+	color: #fff;
+	margin-right: 20px;
+	font-size: 16px;
+}
+
+/* About Us Page Css */
+
+.about-content h1
+{
+	font-family: 'Spicy Rice', cursive;
+	text-align: center;
+	font-size: 75px;
+	margin-top: 50px;
+	text-transform: uppercase;
+	color: #db0f12;
+}
+
+.about-paragraph
+{
+	width: 60%;
+	margin: 40px auto;
+}
+
+.about-content p
+{
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	margin-top: 30px;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 400;
+}
+
+.how-to-play
+{
+	background-image: url(../images/Untitled-1.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 300px;
+	/*position: absolute;*/
+	bottom: 50px;
+	text-align: center;
+	right: 0;
+	left: 0;
+}
+
+.how-to-play h1
+{
+	text-align: center;
+	font-family: 'Spicy Rice', cursive;
+	font-size: 75px;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.how-to-play p
+{
+	margin-top: 20px;
+	font-size: 20px;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* How To Play Css */
+
+.how-to-play-content
+{
+	background-image: url(../images/Untitled-1.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 300px;
+	margin-top: -21px;
+}
+
+.how-to-play-content h1
+{
+	text-align: center;
+	font-family: 'Spicy Rice', cursive;
+	font-size: 50px;
+	margin-top: 75px;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.how-to-play-content p
+{
+	margin-top: 20px;
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.how-to-play-icon img
+{
+	margin-top: 180px;
+}
+
+/* Referral Css */
+
+.referral h1
+{
+	text-align: center;
+	font-size: 60px;
+	margin-top: 80px;
+	margin-bottom: 30px;
+	font-family: 'Spicy Rice', cursive;
+}
+
+.referral-bg
+{
+	background-image: url(../images/referral.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 446px;
+}
+
+/* Login Page Css */
+
+.login-bg
+{
+	background-image: url(../images/Untitled-1.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 300px;
+	margin-top: -21px;
+}
+
+.login-form-block
+{
+	margin-top: -100px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px -2px #191919;
+}
+
+.login-form-block h2
+{
+	text-align: center;
+	font-size: 24px;
+	font-weight: 500;
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 30px;
+}
+
+.login-input
+{
+	height: 45px;
+	border-radius: 25px;
+	font-size: 18px;
+	padding-left: 30px;
+}
+
+.login-form-btn
+{
+	font-size: 16px;
+	width: 130px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	background: linear-gradient(to right, #343ec2 0%, #790e8f 100%);
+	height: 45px;
+	border-radius: 25px;
+}
+
+.login-form p
+{
+	text-align: center;
+	margin-top: 40px;
+	font-size: 24px;
+	font-weight: 300;
+}
+
+.signup-btn
+{
+	font-size: 16px;
+	width: 130px;
+	padding: 12px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	border-radius: 25px;
+}
+
+/* Dashboard Page CSS */
+
+.common-section
+{
+	background-color: #e2e2e2;
+	margin-top: -21px;
+}
+
+.account-summary h1
+{
+	margin-top: 30px;
+	font-size: 30px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+}
+
+.topbar
+{
+	margin-top: 10px;
+	background-color: #fafafa;
+	margin-bottom: 40px;
+	height: 147px;
+	box-shadow: 0px 0px 4px -2px #8c8c8c;
+}
+
+.topbar h2
+{
+	font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.topbar h3
+{
+	margin-top: 0;
+	font-size: 14px;
+	color: #bfbfbf;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.player-icon-block img
+{
+	width: 100px;
+}
+
+.balance-block h2
+{
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 30px;
+}
+
+.balance-block h3
+{
+	margin-top: 15px;
+	font-size: 40px;
+}
+
+.add-withdrawal
+{
+	width: 100%;
+	height: 45px;
+	padding-top: 8px;
+	font-size: 20px;
+	margin-bottom: 10px;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #337ab7;
+	border-color: #337ab7;
+}
+
+.play-ludo
+{
+	background-color: #e43a35;
+	border-color: #e43a35;
+	height: 100px;
+	padding-top: 28px;
+	font-size: 30px;
+}
+
+.challenge-details-block
+{
+	background-color: #337ab7;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.challenge-details-block h1
+{
+	font-size: 24px;
+	margin-top: 0px;
+	color: #fff;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.challenge-details-block p
+{
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+/* Challenge Page CSS */
+
+.challenge
+{
+	text-align: center;
+}
+
+.input-group
+{
+	width: 285px;
+	margin: 0 auto;
+}
+
+.amount-input
+{
+	border-radius: 0;
+	height: 50px;
+	font-size: 16px;
+}
+
+.challenge-create-btn
+{
+	border-radius: 0;
+	height: 50px;
+	background-color: #64b161;
+	color: #fff;
+	font-size: 18px;
+}
+
+.challenge-list
+{
+	margin-top: 40px;
+}
+
+.challenge-row
+{
+	background-color: #e0e0e0;
+	border-bottom: 1px solid #fff;
+}
+
+.challenge-row h1
+{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+}
+
+.challenge-row h1 span
+{
+	font-weight: 500;
+}
+
+.play-btn
+{
+	margin-top: 10px;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+/* Popup CSS */
+
+.popup 
+{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: rgba(0, 0, 0, 0.75);
+	text-align: center;
+	z-index: 999;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.popup:before 
+{
+	content: "";
+	display: inline-block;
+	height: 100%;
+	margin-right: -4px;
+	vertical-align: middle;
+}
+
+.popup-inner 
+{
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	position: relative;
+	max-width: 700px;
+	width: 90%;
+	padding: 40px;
+	box-shadow: 0px 2px 6px #000;
+	border-radius: 3px;
+	background: #fff;
+	text-align: center;
+}
+.popup-inner h1 
+{
+	font-family: "Roboto Slab", serif;
+	font-weight: 700;
+}
+
+.popup-close 
+{
+	width: 34px;
+	height: 34px;
+	padding-top: 4px;
+	display: inline-block;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	-webkit-transform: translate(50%, -50%);
+	transform: translate(50%, -50%);
+	border-radius: 100%;
+	background: transparent;
+	border: solid 4px #808080;
+}
+.popup-close:after, .popup-close:before 
+{
+	content: "";
+	position: absolute;
+	top: 11px;
+	left: 5px;
+	height: 4px;
+	width: 16px;
+	border-radius: 30px;
+	background: #808080;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.popup-close:after 
+{
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.popup-close:hover 
+{
+	-webkit-transform: translate(50%, -50%) rotate(180deg);
+	transform: translate(50%, -50%) rotate(180deg);
+	background: #f00;
+	text-decoration: none;
+	border-color: #f00;
+}
+.popup-close:hover:after, .popup-close:hover:before 
+{
+	background: #fff;
+}
+
+@media only screen and (max-width:767px)
+{
+	.main-nav
+	{
+		width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        position: relative;
+        z-index: 999;
+	}
+
+	.navbar-collapse
+	{
+		padding-right: 0;
+    padding-left: 0;
+	}
+
+	.navbar-default .navbar-nav>.active>a
+	{
+		background-color: #337ab7;
+		text-align: center;
+		border-bottom: 1px solid #fff;
+	}
+
+	.whatsapp-icon
+	{
+		width: 40px !important;
+	}
+
+	.login-btn-nav
+	{
+		background-color: #337ab7;
+    text-align: center;
+	}
+
+	.btn-login
+	{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.logo
+	{
+		font-size: 16px;
+	}
+
+	.navbar-default
+	{
+		height: 60px;
+	}
+
+	.navbar-default .navbar-collapse
+	{
+		border:none;
+	}
+
+	.navbar-default .navbar-nav>.active>a:hover 
+	{
+    background-color: #337ab7;
+    color: #aac8e2;
+	}
+} 
+
+@media only screen and (max-width:767px)
+{
+    .home-content
+    {
+        margin-top:30px;
+        text-align:center;
+    }
+    
+    .home-content h1
+    {
+        font-size: 50px;
+        text-align: center;
+    }
+    
+    .home-content h3
+    {
+        text-align: center;
+        font-size: 20px;
+    }
+    
+    .signup-now
+    {
+        margin-top:20px;
+    }
+    
+    .footer-block h1
+    {
+        text-align:center;
+    }
+    
+    .login-form-block
+    {
+        margin-right: 20px;
+        margin-left: 20px;
+        padding: 20px;
+        margin-top: -150px;
+    }
+    
+    .login-bg
+    {
+        height:230px;
+    }
+    
+    .navbar-default
+    {
+        border:none;
+    }
+    
+    .login-form p
+    {
+        font-size:18px;
+    }
+    
+    .signup-btn
+    {
+        margin-bottom:40px;
+    }
+    
+    .login-form-block h2
+    {
+        font-size:20px;
+    }
+    
+    .about-paragraph
+    {
+        width:90%;
+        margin:20px auto;
+    }
+    
+    .about-content h1
+    {
+        font-size: 40px;
+        margin-top: 20px;
+    }
+    
+    .about-content p
+    {
+        font-size: 15px;
+        line-height: 22px;
+    }
+    
+    .how-to-play
+    {
+        margin-top:100px;
+    }
+    
+    .how-to-play h1
+    {
+        font-size: 40px;
+        padding-top: 30px;
+    }
+    
+    .how-to-play p
+    {
+        font-size:15px;
+    }
+    
+    #unique-id
+    {
+        width:100px;
+    }
+    
+    .topbar
+    {
+        margin-bottom:0;
+        margin-top:0;
+        height:100px;
+    }
+    
+    .account-summary h1
+    {
+        font-size:20px;
+        margin-top:20px;
+        text-align:center;
+    }
+    
+    .player-icon-block img
+    {
+        width:60px;
+    }
+    
+    .topbar h2
+    {
+        font-size:14px;
+    }
+    
+    .balance-block h3
+    {
+        font-size:30px;
+        margin-top:0px;
+    }
+    
+    .add-withdrawal
+    {
+        height:36px;
+        font-size:12px;
+    }
+    
+    .play-ludo
+    {
+        margin-top: 20px;
+        height: 60px;
+        padding-top: 18px;
+    }
+    
+    .add-money
+    {
+        margin-top:8px;
+    }
+    
+    .challenge-details-block h1
+    {
+        font-size:14px;
+    }
+    
+    .challenge-details-block p
+    {
+        font-size:10px;
+    }
+    
+    .challenge-details-topbar
+    {
+        height:120px;
+    }
+    
+    .challenge-details-block
+    {
+        margin-top:8px;
+    }
+    
+    .bar-row
+    {
+        margin-bottom:40px;
+    }
+    
+    .dashboard-sections
+    {
+        padding-right:10px;
+        padding-left:10px;
+    }
+    
+    .common-section
+    {
+        padding-bottom:10px;
+    }
+    
+    .create-challenge-block h1
+    {
+        font-size:20px;
+    }
+    
+    .challenge-row h1
+    {
+        font-size:12px;
+    }
+    
+    .challenge-row
+    {
+        margin-bottom:30px;
+    }
+    
+    .challenge-row h1
+    {
+        font-weight:400;
+    }
+    
+    .play-btn
+    {
+        float:left !important;
+        margin-bottom: 10px;
+    }
+    
+    .challenge-row
+    {
+        margin-bottom:1px;
+    }
+	
+	.dashboard-btn
+	{
+		display:none;
+	}
+	
+	.mobo-dashboard-btn
+	{
+		display: block !important;
+		width: 120px;
+		float: right;
+		position: absolute;
+		left: 48%;
+	}
+	
+	.challenge-list
+	{
+		margin-bottom:40px;
+	}
+}
+
