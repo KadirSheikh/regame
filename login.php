@@ -40,7 +40,9 @@ if(isset($_POST['submit'])) {
      $_SESSION['loggedin'] = true;
      $_SESSION['username'] = $_username;
  }
-  
+   if (!$data) {  
+    die("Failed".mysqli_error($conn));
+        }
 
         while($row = mysqli_fetch_assoc($data)){
           
@@ -48,12 +50,14 @@ if(isset($_POST['submit'])) {
           $db_psw = $row['password'];
         }
         
-        
-        if($_username === $db_username && $psw === $db_psw){
-          
+  
+        $verify = password_verify($psw, $db_psw);
+
+        if($email === $db_email){
+          if($verify){
             echo '<script type="text/javascript">
-            swal("Login Successful :)", "Lets Play.", "success").then(() => {
-              window.location.href="dashboard.php";
+            swal("Login Successful :)", "Please Vote.", "success").then(() => {
+              window.location.href="profile.php";
             });
             
             </script>';
@@ -66,13 +70,15 @@ if(isset($_POST['submit'])) {
            }
         
          
-        
-        
-        
-        
         }
+  
+
+ 
 
 
+
+
+}
 
 
 ?>

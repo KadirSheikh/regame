@@ -25,9 +25,9 @@
                 } 
                 ?></h2>
             <h3>
-				<form action="javascript:void(0)" id="change-unique-id" method="POST" >
+				<!-- <form action="javascript:void(0)" id="change-unique-id" method="POST" >
 					<input type="hidden" name="_token" value="JLDOT906Dihv5Fe4Qk4EJDqYPL6QBqihdKZASGPW">					@-<input type="text" class="unique-user-id" value="KadGxn" name="username" id="unique-id" />
-				</form>
+				</form> -->
 			</h3>
           </div>
           <div class="col-md-3 col-xs-6 topbar balance-block text-center" style="border-bottom: 2px solid #efb207;">
