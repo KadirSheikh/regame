@@ -33,11 +33,15 @@
                 session_start();
 
                 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                
                      ?>
+        
+
           <li class="active login-btn-nav">
             <div class="play-login">
+              <a href=" dashboard.php" class="btn btn-primary btn-login dashboard-btn">DASHBOARD</a>
 
-              <a href="login.php" class="btn btn-primary btn-login">LOGIN</a>
+              <a href="logout.php" class="btn btn-primary btn-login">LOGOUT</a>
             </div>
           </li>
           <?php
@@ -45,9 +49,8 @@
                   ?>
           <li class="active login-btn-nav">
             <div class="play-login">
-              <a href=" dashboard.php" class="btn btn-primary btn-login dashboard-btn">DASHBOARD</a>
 
-              <a href=" logout.php" class="btn btn-primary btn-login">LOGOUT</a>
+              <a href="login.php" class="btn btn-primary btn-login">LOGIN</a>
             </div>
           </li>
           <?php
