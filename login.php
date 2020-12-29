@@ -56,8 +56,8 @@ if(isset($_POST['submit'])) {
         if($email === $db_email){
           if($verify){
             echo '<script type="text/javascript">
-            swal("Login Successful :)", "Please Vote.", "success").then(() => {
-              window.location.href="profile.php";
+            swal("Login Successful :)", "Lets Play.", "success").then(() => {
+              window.location.href="dashboard.php";
             });
             
             </script>';

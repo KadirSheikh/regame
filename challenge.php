@@ -91,14 +91,14 @@
 				?>
 		
 
-			<div class="row challenge-row text-center">
+			<!-- <div class="row challenge-row text-center">
 				<div class="col-md-8 col-xs-8">
 					<h1><span>KiNgShAb</span> VS <span>Rkv</span> for Point 550</h1>
 				</div>
 				<div class="col-md-4 col-xs-4">
 					<a href="javascript:void(0)" class="btn btn-primary play-btn" disabled="">Playing</a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 
@@ -189,24 +189,6 @@
 
 
 	<?php include 'common/footer.php'; ?>
-</div>
-<div class="swal-overlay" tabindex="-1">
-	<div class="swal-modal" role="dialog" aria-modal="true">
-		<div class="swal-text" style="">Your balance is low. Please add money.</div>
-		<div class="swal-footer">
-			<div class="swal-button-container">
-
-				<button class="swal-button swal-button--confirm">OK</button>
-
-				<div class="swal-button__loader">
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-
-			</div>
-		</div>
-	</div>
 </div>
 <script>
 
