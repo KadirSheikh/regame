@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nameErr = "Only letters and white space allowed!";
     }else{
       $_name = $name;
-      $_SESSION['name'] = $_name;
+      
     }
    
   }
@@ -40,15 +40,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       while($row = mysqli_fetch_assoc($data)){
           
         $db_username = $row['username'];
+        $db_email = $row['email'];
+
         if($user_name ==  $db_username){
-          $usernameErr = "Username is already exists";
+          $usernameErr = "Username already exists!";
         }
 
       }
     }else{
-      
+
       $_username = $user_name;
-      $_SESSION['username'] = $_username;
+     
     }
   }
   
@@ -58,9 +60,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = test_input($_POST["email"]);
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Invalid email format!";
+      while($row = mysqli_fetch_assoc($data)){
+        $db_email = $row['email'];
+        
+        if($email ==  $db_email){
+          $usernameErr = "This email is already in use!";
+        }
+
+      }
     }else{
       $_email = $email;
-      $_SESSION['email'] = $_email;
+     
     }
   }
 
@@ -68,14 +78,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mbnoErr = "*Mobile number is required";
   } else {
     $mb_no = test_input($_POST["mb_no"]);
-    $_SESSION['mbno'] = $mb_no;
+    
   }
 
   if (empty($_POST["date"])) {
     $dateErr = "*Please select date";
   } else {
     $date = test_input($_POST["date"]);
-    $_SESSION['date'] = $date;
+    
   }
 
   if (empty($_POST["password"])) {
@@ -86,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $passErr = 'Password must contain atleast one uppercase, one lowercase, a number and a special character!';
   }else{
     $psw = password_hash($password, PASSWORD_DEFAULT);
-      $_SESSION['pass'] = $psw;
+      
     }
   
 
@@ -105,6 +115,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $referal = $_POST['referral_code'];
 
   if(!empty($_name) && !empty($_username) && !empty($_email) && !empty($mb_no) && !empty($date) && !empty($psw) && !empty($_POST["i_agree"])){
+    
+    $_SESSION['name'] = $_name;
+    $_SESSION['username'] = $_username;
+    $_SESSION['email'] = $_email;
+    $_SESSION['mbno'] = $mb_no;
+    $_SESSION['date'] = $date;
+    $_SESSION['pass'] = $psw;
+
     $query = "INSERT INTO `users_tbl`(`name`, `email`, `mobile`, `password`, `username`, `referal_code`, `created_date`) VALUES ('{$_name}' ,'{$_email}' ,'{$mb_no}' , '{$psw}' , '{$_username}' , '{$referal}' , '{$date}')";
 
     $data = mysqli_query($conn , $query);
