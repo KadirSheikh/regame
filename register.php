@@ -81,7 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passErr = 'Minimum 8 and maximum 20 characters, at least one uppercase letter, one lowercase letter, one number and one special character!';
     }else{
       $psw = test_input($_POST["password"]);
-        
+     
+      
       }
   
     }
