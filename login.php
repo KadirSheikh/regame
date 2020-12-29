@@ -84,7 +84,7 @@ function test_input($data) {
 }
 ?>
 
-   ?>
+
   <div class="main">
   <?php include 'common/nav.php'; ?>
 
