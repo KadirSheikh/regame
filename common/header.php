@@ -19,6 +19,7 @@
 		<script src="front/js/jquery.min.js"></script>
         
 	<style>
+    
     .loading {
       width: 100%;
       height: 100%;

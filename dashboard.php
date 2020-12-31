@@ -125,6 +125,8 @@
         </div>
       </div>
     </section>
+
+    <!-- withdraw money start-->
 <div class="popup" data-pd-popup="withdraw" id="withdraw-modal">
     <div class="popup-inner">
         <div class="bet-details">
@@ -161,6 +163,10 @@
         <a class="popup-close" data-pd-popup-close="withdraw" href="#"> </a>
     </div>
 </div>
+<!-- withdraw money end-->
+
+
+<!-- add money start-->
 <div class="popup" data-pd-popup="add-money">
     <div class="popup-inner">
         <div class="bet-details">
@@ -169,8 +175,7 @@
             </h1>
             <div class="alert alert-danger" id="errorMsg" style="display:none;"></div>
                         <div class="alert alert-success" id="successMsg" style="display:none;"></div>
-            <!--<p class="oppenent">Oppenent Whatsapp Number <span id="oppenent-mobile"></span></p>-->
-            <!--<p style="font-size:17px;">Click here to message your oppenent</p>-->
+           
         </div>
           <form class="needs-validation form-inline" method="POST" action="payment" id="add-money">
 			  <input type="hidden" name="_token" value="JLDOT906Dihv5Fe4Qk4EJDqYPL6QBqihdKZASGPW">            <div class="">
@@ -178,15 +183,262 @@
                 
                 <input type="submit" value="Add Now" name="submit_btn" class="btn btn-primary form-control">
                 <div style="color:red;display:none;" id="add_money-error">Error select</div>
-                    <!-- <a href="http://localhost/apnaludo//user/login" type="submit" name="submit" value="submit"class="btn btn-primary form-control btn-registration-next text-center">NEXT</a> -->
+                  
                 
             </div>
           </form>
         <a class="popup-close" data-pd-popup-close="add-money" href="#"> </a>
     </div>
 </div>
+<!-- add money end-->
 
-<script src="front/js/core/script.js"></script>
+<script >
+$(function () {
+//----- OPEN
+$(document).on('click', '[data-pd-popup-open]', function (e) {
+    var targeted_popup_class = $(this).attr("data-pd-popup-open");
+    $('[data-pd-popup="' + targeted_popup_class + '"]').fadeIn(100);
+    $("body").addClass("popup-open");
+    e.preventDefault();
+});
+
+//----- CLOSE
+$(document).on('click', '[data-pd-popup-close]', function (e) {
+    var targeted_popup_class = $(this).attr("data-pd-popup-close");
+    $('[data-pd-popup="' + targeted_popup_class + '"]').fadeOut(200);
+    $("body").removeClass("popup-open");
+    e.preventDefault();
+});
+
+
+//withdraw
+$('#withDraw').submit(function (e) {
+    e.preventDefault();
+
+    var withdraw_in = $('#withdraw_in').val();
+    var wallet_number = $('#wallet_number').val();
+    var withdraw_amt = $('#withdraw_amt').val();
+    var flag = 1;
+    if (!withdraw_in) {
+        $('#withdraw_in-error').text('Please select withdraw in');
+        $('#withdraw_in-error').addClass('error');
+        $('#withdraw_in-error').show();
+        flag = 0;
+    }
+
+    if (!wallet_number) {
+        $('#wallet_number-error').text('Please enter mobile number');
+        $('#wallet_number-error').addClass('error');
+        $('#wallet_number-error').show();
+        flag = 0;
+    } else if (!$.isNumeric(wallet_number)) {
+        $('#wallet_number-error').text('Please enter numeric value');
+        $('#wallet_number-error').addClass('error');
+        $('#wallet_number-error').show();
+        flag = 0;
+    } else if (wallet_number.length != 10) {
+        $('#wallet_number-error').text('Please enter 10 digit mobile number');
+        $('#wallet_number-error').addClass('error');
+        $('#wallet_number-error').show();
+        flag = 0;
+    }
+
+    if (!withdraw_amt) {
+        $('#withdraw_amt-error').text('Please enter amount');
+        $('#withdraw_amt-error').addClass('error');
+        $('#withdraw_amt-error').show();
+        flag = 0;
+    } else if (!$.isNumeric(withdraw_amt)) {
+        $('#withdraw_amt-error').text('Please enter numeric value');
+        $('#withdraw_amt-error').addClass('error');
+        $('#withdraw_amt-error').show();
+        flag = 0;
+    } else if (withdraw_amt < 50) {
+        $('#withdraw_amt-error').text('Amount should be greater than 50');
+        $('#withdraw_amt-error').addClass('error');
+        $('#withdraw_amt-error').show();
+        flag = 0;
+    }
+
+    if (flag) {
+        $form = $(this);
+
+        // $.ajax({
+        //     type: "POST",
+        //     dataType: 'json',
+        //     url: 'dashboard/withdraw-request',
+        //     data: $form.serialize(),
+        //     beforeSend: function () {
+        //         $('.loading').show();
+        //     },
+        //     success: function (data) {
+        //         if (data.success) {
+        //             $('#error-msg').text('');
+        //             $('#error-msg').hide();
+        //             $('#withdraw-modal').hide();
+        //             swal(data.success);
+        //             $('#withDraw')[0].reset();
+        //             $("#withDraw").trigger("reset");
+        //         } else {
+        //             $('#error-msg').text(data.error);
+        //             $('#error-msg').show();
+        //         }
+        //         if (data.wallet_amount) {
+        //             $('#wallet_amount').text(data.wallet_amount);
+        //         }
+        //     },
+        //     complete: function (data) {
+        //         $('.loading').hide();
+        //         $('#withDraw')[0].reset();
+        //         $("#withDraw").trigger("reset");
+        //     }
+
+        // });
+    }
+});
+
+$('#withdraw_in').change(function () {
+    var withdraw_in = $('#withdraw_in').val();
+    if (withdraw_in) {
+        $('#withdraw_in-error').text('');
+        $('#withdraw_in-error').removeClass('error');
+        $('#withdraw_in-error').hide();
+    } else {
+        $('#withdraw_in-error').text('Please select withdraw in field');
+        $('#withdraw_in-error').addClass('error');
+        $('#withdraw_in-error').show();
+    }
+});
+
+$('#wallet_number').keyup(function () {
+    var wallet_number = $(this).val();
+    if (!wallet_number) {
+        $('#wallet_number-error').text('Please enter mobile number');
+        $('#wallet_number-error').addClass('error');
+        $('#wallet_number-error').show();
+    } else if (!$.isNumeric(wallet_number)) {
+        $('#wallet_number-error').text('Please enter numeric value');
+        $('#wallet_number-error').addClass('error');
+        $('#wallet_number-error').show();
+    } else if (wallet_number.length != 10) {
+        $('#wallet_number-error').text('Please enter 10 digit mobile number');
+        $('#wallet_number-error').addClass('error');
+        $('#wallet_number-error').show();
+    } else {
+        $('#wallet_number-error').text('');
+        $('#wallet_number-error').removeClass('error');
+        $('#wallet_number-error').hide();
+    }
+});
+
+$('#withdraw_amt').keyup(function () {
+    var withdraw_amt = $('#withdraw_amt').val();
+    if (!withdraw_amt) {
+        $('#withdraw_amt-error').text('Please enter amount');
+        $('#withdraw_amt-error').addClass('error');
+        $('#withdraw_amt-error').show();
+    } else if (!$.isNumeric(withdraw_amt)) {
+        $('#withdraw_amt-error').text('Please enter numeirc value');
+        $('#withdraw_amt-error').addClass('error');
+        $('#withdraw_amt-error').show();
+    } else if (withdraw_amt < 50) {
+        $('#withdraw_amt-error').text('Amount should be greater than 50');
+        $('#withdraw_amt-error').addClass('error');
+        $('#withdraw_amt-error').show();
+    } else {
+        $('#withdraw_amt-error').text('');
+        $('#withdraw_amt-error').removeClass('error');
+        $('#withdraw_amt-error').hide();
+    }
+});
+
+
+//add money
+
+$('#add-money').submit(function (e) {
+    e.preventDefault();
+    var add_money = $('#add_money').val();
+    var flag = 1;
+    if (!add_money) {
+        $('#add_money-error').text('Please enter amount');
+        $('#add_money-error').addClass('error');
+        $('#add_money-error').show();
+        flag = 0;
+    } else if (!$.isNumeric(add_money)) {
+        $('#add_money-error').text('Please enter numeric value');
+        $('#add_money-error').addClass('error');
+        $('#add_money-error').show();
+        flag = 0;
+    } else if (add_money < 0) {
+        $('#add_money-error').text('Amount should be less than 0');
+        $('#add_money-error').addClass('error');
+        $('#add_money-error').show();
+        flag = 0;
+    }
+
+    if (flag) {
+        e.currentTarget.submit();
+    }
+});
+
+$('#add_money').keyup(function () {
+    var add_money = $('#add_money').val();
+    if (!add_money) {
+        $('#add_money-error').text('Please enter amount');
+        $('#add_money-error').addClass('error');
+        $('#add_money-error').show();
+    } else if (!$.isNumeric(add_money)) {
+        $('#add_money-error').text('Please enter numeirc value');
+        $('#add_money-error').addClass('error');
+        $('#add_money-error').show();
+    } else if (add_money < 0) {
+        $('#add_money-error').text('Amount should be less than 0');
+        $('#add_money-error').addClass('error');
+        $('#add_money-error').show();
+    } else {
+        $('#add_money-error').text('');
+        $('#add_money-error').removeClass('error');
+        $('#add_money-error').hide();
+    }
+});
+
+$('#unique-id').focusout(function (e) {
+    e.preventDefault();
+    var uid = $(this).val();
+    var flag = 1;
+    if (!uid) {
+        swal("Unique ID may not be empty!");
+        flag = 0;
+    }
+
+    var regex = new RegExp("^[a-zA-Z0-9]+$");
+
+    if (!regex.test(uid)) {
+        swal("Special characters are not allowed in Unique ID!");
+        flag = 0;
+    }
+
+    if (flag) {
+        $form = $(this);
+
+        // $.ajax({
+        //     type: "POST",
+        //     dataType: 'json',
+        //     url: 'dashboard/change-unique-id',
+        //     data: $form.serialize(),
+        //     success: function (data) {
+        //         if (data.message) {
+        //             swal(data.message);
+        //         }
+        //     }
+
+        // });
+    }
+
+});
+
+});
+</script>
 
 <?php include 'common/footer.php'; ?>
   </div>
