@@ -84,10 +84,13 @@ if(isset($_POST['submit_otp'])){
 
   </div>
 	<?php 
-	 use PHPMailer\PHPMailer\PHPMailer;
-	 use PHPMailer\PHPMailer\Exception;
-	 
-	 require_once "vendor/autoload.php";
+	 use PHPMailer\PHPMailer\PHPMailer; 
+   use PHPMailer\PHPMailer\Exception; 
+    
+   require 'PHPMailer/Exception.php'; 
+   require 'PHPMailer/PHPMailer.php'; 
+   require 'PHPMailer/SMTP.php';
+
 	$emailErr="";
 	if (isset($_POST['send_otp'])) {
 		
@@ -106,7 +109,7 @@ if(isset($_POST['submit_otp'])){
 	
 
 		  if(!empty($_email)){
-			$_SESSION[email] = $_email;
+			$_SESSION['email'] = $_email;
 
 			$otp = mt_rand(100000,999999);
 			$insert_otp = mysqli_query($conn,"INSERT INTO `otp_tbl`(`requested_by`,`otp`, `is_expired`) VALUES ('{$_email}','$otp','0')");
@@ -117,33 +120,36 @@ if(isset($_POST['submit_otp'])){
 		  
 	  
 			if($insert_otp){
-				$mail = new PHPMailer(true);
 
-// $mail->SMTPDebug = 3;                               
-// $mail->isSMTP();                                     
-// $mail->Host = "";
-// $mail->SMTPAuth = true;                               
-// $mail->Username = "";                 
-// $mail->Password = "";                           
-// $mail->SMTPSecure = "tls";                           
-// $mail->Port = 587;
+	  $mail = new PHPMailer; 
+ 
+        $mail->isSMTP();                      // Set mailer to use SMTP 
+        $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
+        $mail->SMTPAuth = true;               // Enable SMTP authentication 
+        $mail->Username = 'mail_id';   // SMTP username 
+        $mail->Password = 'password';   // SMTP password 
+        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
+        $mail->Port = 587;                    // TCP port to connect to 
 
-$mail->From = "regame@gmail.com";
-$mail->FromName = "Re Game";
+$mail->setFrom('regame@gmail.com', 'Re Game'); 
+$mail->addReplyTo('regame@gmail.com', 'Re Game');
 
-$mail->addAddress($_SESSION['email'], $_SESSION['name']);
+$mail->addAddress($_SESSION['email']);
 
 $mail->isHTML(true);
 
-$mail->Subject = "One Time Password (OTP) Confirmation";
-$mail->Body = "<i>Thank you for register at Re Game</i>";
-$mail->AltBody = "Please verify your OTP, your OTP is ";
-$mail->AltBody = "<h2>.$otp.</h2>";
-try {
+$mail->Subject = "Reset Your Password - RE GAME";
+
+$bodyContent = '<p> Dear Sir/Madam,</p>';
+$bodyContent .= '<p><b> Please use the following OTP to reset your password. </b></p>'; 
+$bodyContent .=  '<h2>'. $otp. '</h2>'; 
+$mail->Body = $bodyContent;
+
+
 	if($mail->send()){
         
     echo '<script type="text/javascript">
-    swal("OTP Confirmation", "OTP Confirmation mail is sent to your email address.", "success").then(() => {
+    swal("OTP For Password Reset", "OTP for password reset has been sent to your email address.", "success").then(() => {
      var modal = document.getElementById("myModal");
      var btn = document.getElementById("myBtn");
      var span = document.getElementsByClassName("close")[0];
@@ -157,17 +163,14 @@ try {
      });
 
   </script>';
+	}else{
+    echo '<script type="text/javascript">
+    swal("Something went wrong :(", "Go back and try again.", "error");
+  </script>';
+     
+  }
+		
 	}
- 
-} catch (Exception $e) {
-  echo '<script type="text/javascript">
-  swal("Something went wrong :(", "Go back and try again.", "error");
-</script>';
-   
-}
-	
-				
-		  }
 	}
 	
 }

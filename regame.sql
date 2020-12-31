@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2020 at 05:09 PM
+-- Generation Time: Dec 31, 2020 at 07:34 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -39,6 +39,27 @@ CREATE TABLE `match_tbl` (
   `bet_amt` int(20) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otp_tbl`
+--
+
+CREATE TABLE `otp_tbl` (
+  `id` int(11) NOT NULL,
+  `requested_by` varchar(255) NOT NULL,
+  `otp` int(10) NOT NULL,
+  `is_expired` tinyint(1) NOT NULL,
+  `requested_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `otp_tbl`
+--
+
+INSERT INTO `otp_tbl` (`id`, `requested_by`, `otp`, `is_expired`, `requested_at`) VALUES
+(22, 'sheikhkadir02@gmail.com', 271258, 0, '2020-12-31 18:22:48');
 
 -- --------------------------------------------------------
 
@@ -95,13 +116,6 @@ CREATE TABLE `users_tbl` (
   `create_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users_tbl`
---
-
-INSERT INTO `users_tbl` (`id`, `name`, `email`, `mobile`, `password`, `username`, `referal_code`, `wallet_bal`, `create_date`) VALUES
-(16, 'Kadir Rizwan Sheikh', 'sheikhkadir02@gmail.com', '7845451288', 'Kadir@123', 'Kadir@123', 'fsdfasf', '0', '2020-12-29');
-
 -- --------------------------------------------------------
 
 --
@@ -126,6 +140,12 @@ CREATE TABLE `withdraw_tbl` (
 -- Indexes for table `match_tbl`
 --
 ALTER TABLE `match_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `otp_tbl`
+--
+ALTER TABLE `otp_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -163,6 +183,12 @@ ALTER TABLE `match_tbl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `otp_tbl`
+--
+ALTER TABLE `otp_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT for table `set_challenge`
 --
 ALTER TABLE `set_challenge`
@@ -178,7 +204,7 @@ ALTER TABLE `tnx_tbl`
 -- AUTO_INCREMENT for table `users_tbl`
 --
 ALTER TABLE `users_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `withdraw_tbl`

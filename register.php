@@ -98,10 +98,12 @@ if(isset($_POST['submit_otp'])){
 
   </div>
   <?php
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\Exception;
+       use PHPMailer\PHPMailer\PHPMailer; 
+       use PHPMailer\PHPMailer\Exception; 
         
-        require_once "vendor/autoload.php";
+       require 'PHPMailer/Exception.php'; 
+       require 'PHPMailer/PHPMailer.php'; 
+       require 'PHPMailer/SMTP.php';
 
 $nameErr = $emailErr = $usernameErr = $mbnoErr = $dateErr = $passErr = $cpassErr = $checkboxErr = "";
 
@@ -215,53 +217,63 @@ if (isset($_POST['submit'])) {
             }
     
 
-      if($insert_otp){
+      if($insert_otp){ 
         
-$mail = new PHPMailer(true);
+        $mail = new PHPMailer; 
+ 
+        $mail->isSMTP();                      // Set mailer to use SMTP 
+        $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
+        $mail->SMTPAuth = true;               // Enable SMTP authentication 
+        $mail->Username = 'mail_id';   // SMTP username 
+        $mail->Password = 'password';   // SMTP password 
+        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
+        $mail->Port = 587;                    // TCP port to connect to 
 
-// $mail->SMTPDebug = 3;                               
-// $mail->isSMTP();                                     
-// $mail->Host = "";
-// $mail->SMTPAuth = true;                               
-// $mail->Username = "";                 
-// $mail->Password = "";                           
-// $mail->SMTPSecure = "tls";                           
-// $mail->Port = 587;
 
-$mail->From = "regame@gmail.com";
-$mail->FromName = "Re Game";
 
-$mail->addAddress($_SESSION['email'], $_SESSION['name']);
+
+$mail->setFrom('regame@gmail.com', 'Re Game'); 
+$mail->addReplyTo('regame@gmail.com', 'Re Game');
+
+
+$mail->addAddress($_SESSION['email']);
 
 $mail->isHTML(true);
 
-$mail->Subject = "One Time Password (OTP) Confirmation";
-$mail->Body = "<i>Thank you for register at Re Game</i>";
-$mail->AltBody = "Please verify your OTP, your OTP is ";
-$mail->AltBody = "<h2>.$otp.</h2>";
-try {
-    $mail->send();
-    echo '<script type="text/javascript">
-    swal("OTP Confirmation", "OTP Confirmation mail is sent to your email address.", "success").then(() => {
-     var modal = document.getElementById("myModal");
-     var btn = document.getElementById("myBtn");
-     var span = document.getElementsByClassName("close")[0];
-     
-     
-       modal.style.display = "block";
-     
-     span.onclick = function() {
-       modal.style.display = "none";
-     }
-     });
+$mail->Subject = "One Time Password (O T P) Confirmation - RE GAME";
 
-  </script>';
-} catch (Exception $e) {
-  echo '<script type="text/javascript">
-  swal("Something went wrong :(", "Go back and try again.", "error");
-</script>';
+$bodyContent = '<p> Dear Sir/Madam,</p>';
+$bodyContent .= '<p> Thank you to register at Re Game :D </p>';
+$bodyContent .= '<p><b> Please use the following OTP to complete your registration process. </b></p>'; 
+$bodyContent .=  '<h2>'. $otp. '</h2>'; 
+
+$mail->Body = $bodyContent;
+
+
+    if($mail->send()){
+      echo '<script type="text/javascript">
+      swal("OTP For Registration", "OTP Confirmation mail has been sent to your email address.", "success").then(() => {
+       var modal = document.getElementById("myModal");
+       var btn = document.getElementById("myBtn");
+       var span = document.getElementsByClassName("close")[0];
+       
+       
+         modal.style.display = "block";
+       
+       span.onclick = function() {
+         modal.style.display = "none";
+       }
+       });
+  
+    </script>';
+      }else{
+        echo '<script type="text/javascript">
+        swal("Something went wrong :(", "Go back and try again.", "error");
+      </script>';
+      }
+  
    
-}
+
 
 // echo '<script>
 // var modal = document.getElementById("myModal");
